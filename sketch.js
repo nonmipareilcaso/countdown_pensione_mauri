@@ -78,10 +78,10 @@ function testoTesto(){
   push();
   textFont(myFontAmatic);
   fill(255, 100);
-  textSize(width / 40);
+  textSize(width / 20);
   textAlign(CENTER, CENTER);
-  text("MANCANO", width/2, (width / 20) - 3)
-  text("ALLA TUA PENSIONE", width/2, height - (width / 20) - 3);
+  text("MANCANO", width/2, height / 3)
+  text("ALLA TUA PENSIONE", width/2, height * 0.67);
   pop();
 }
 
@@ -123,7 +123,7 @@ function testoTimer(){
   fill(255, opacita);
   textSize(width / 10);
   textAlign(CENTER, CENTER);
-  text("" + giorni + " d " + ore + " h " + minuti + " m " + secondi + " s", width/2, height/2);
+  text("" + giorni + "d " + ore + "h " + minuti + "m " + secondi + "s", width/2, height/2);
   opacita = opacita + deltaopacita;
   if(opacita > 255){
     deltaopacita = -5;
