@@ -69,7 +69,7 @@ function testoTesto(){
   push();
   textFont(myFontAmatic);
   fill(255, 100);
-  textSize(width / 20);
+  textSize(width / 18);
   textAlign(CENTER, CENTER);
   text("MANCANO", width/2, height / 4)
   text("ALLA TUA PENSIONE", width/2, height * 0.75);
@@ -134,8 +134,9 @@ function testoTimer(){
   
   push();
   textFont(myFontCoiny);
-  fill(255, opacita);
-  textSize(width / 10);
+  //fill(255, opacita);
+  fill(250);
+  textSize(width / 12);
   textAlign(CENTER, CENTER);
   text("" + giorni + "d " + ore + "h " + minuti + "m " + secondi + "s", width/2, height/2);
   opacita = opacita + deltaopacita;
