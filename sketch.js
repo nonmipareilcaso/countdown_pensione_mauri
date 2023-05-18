@@ -24,10 +24,6 @@ let b5 = 70;
 
 let secondiTarget = 15611400;
 
-let opacita;
-let deltaopacita;
-
-
 let confettis = [];
 let thirties = [];
 
@@ -44,7 +40,6 @@ function setup() {
 
 function draw() {
   background(0);
-  testoTimer();
   testoTesto();
   for(let i = 0; i < 250; i++){
     confettis[i].display();
@@ -66,18 +61,6 @@ function mousePressed(){
 }
 
 function testoTesto(){
-  push();
-  textFont(myFontAmatic);
-  fill(255, 100);
-  textSize(width / 18);
-  textAlign(CENTER, BOTTOM);
-  text("MANCANO", width/2, height / 4)
-  textAlign(CENTER, TOP);
-  text("ALLA TUA PENSIONE", width/2, height * 0.75);
-  pop();
-}
-
-function testoTimer(){
   
   let secondiTotal = 0;
   let mese = month();
@@ -134,19 +117,28 @@ function testoTimer(){
   let giorni = secondiRestanti;
   
   push();
-  textFont(myFontCoiny);
-  //fill(255, opacita);
-  fill(250);
-  textSize(width / 12);
-  textAlign(CENTER, CENTER);
-  text("" + giorni + "d " + ore + "h " + minuti + "m " + secondi + "s", width/2, height/2);
-  opacita = opacita + deltaopacita;
-  if(opacita > 255){
-    deltaopacita = -5;
+  if(secondiRestanti >= 0){
+    textFont(myFontAmatic);
+    fill(255, 100);
+    textSize(width / 18);
+    textAlign(CENTER, BOTTOM);
+    text("MANCANO", width/2, height / 4)
+    textAlign(CENTER, TOP);
+    text("ALLA TUA PENSIONE", width/2, height * 0.75);
+    textFont(myFontCoiny);
+    fill(250);
+    textSize(width / 12);
+    textAlign(CENTER, CENTER);
+    text("" + giorni + "d " + ore + "h " + minuti + "m " + secondi + "s", width/2, height/2);
   }
-  else if(opacita < 0){
-    deltaopacita = 5;
+  else{
+    textFont(myFontCoiny);
+    fill(250);
+    textSize(width / 12);
+    textAlign(CENTER, CENTER);
+    text("sei in pensione!", width/2, height/2);
   }
+  
   pop();
 }
 
@@ -181,7 +173,7 @@ class scrittaMC {
       fill(r5, g5, b5, this.opacity);
     }
     textFont(myFontCoiny);
-    textSize(width / 8);
+    textSize(width / 12);
     textAlign(CENTER, CENTER);
     text("MC", this.x, this.y);
     pop();
