@@ -71,8 +71,8 @@ function testoTesto(){
   fill(255, 100);
   textSize(width / 20);
   textAlign(CENTER, CENTER);
-  text("MANCANO", width/2, height / 3)
-  text("ALLA TUA PENSIONE", width/2, height * 0.67);
+  text("MANCANO", width/2, height / 4)
+  text("ALLA TUA PENSIONE", width/2, height * 0.75);
   pop();
 }
 
