@@ -61,7 +61,7 @@ function draw() {
 }
 
 function mousePressed(){
-  let trenta = new scritta30(mouseX, mouseY);
+  let trenta = new scrittaMC(mouseX, mouseY);
   thirties.push(trenta);
 }
 
@@ -70,8 +70,9 @@ function testoTesto(){
   textFont(myFontAmatic);
   fill(255, 100);
   textSize(width / 18);
-  textAlign(CENTER, CENTER);
+  textAlign(CENTER, BOTTOM);
   text("MANCANO", width/2, height / 4)
+  textAlign(CENTER, TOP);
   text("ALLA TUA PENSIONE", width/2, height * 0.75);
   pop();
 }
