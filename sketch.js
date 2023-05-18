@@ -22,16 +22,7 @@ let r5 = 248;
 let g5 = 182;
 let b5 = 70;
 
-let giorni = 0;
-let ore = 0;
-let minuti = 0;
-let secondi = 0;
-
-let giornoT = 29;
-let oraT = 15;
-let minutoT = 29;
-let secondoT = 60;
-
+let secondiTarget = 15611400;
 
 let opacita;
 let deltaopacita;
@@ -86,37 +77,60 @@ function testoTesto(){
 }
 
 function testoTimer(){
-  let mese = month();
-  let giorno = day();
-  let ora = hour();
-  let minuto = minute();
-  let secondo = second();
   
-  secondi = secondoT - secondo;
-  minuti = minutoT - minuto;
-  if(minuti < 0){
-  minuti = minuti + 60;
-  }
-  ore = oraT - ora;
-  if(ore < 0){
-  ore = ore + 24;
-  }
-  giorni = giornoT - giorno;
-  if(mese == 5){
-  giorni = giornoT + 31 - giorno
-  }
-  if(mese >= 6){
-    if(giorno > giornoT){
-      if(ora > oraT){
-        if(miuto > minutoT){
-          giorni = 0;
-          ore = 0;
-          minuti = 0;
-          secondi = 0;
+  let secondiTotal = 0;
+  let mese = month();
+  if(mese > 1){
+    secondiTotal += 2678400;
+    if(mese > 2){
+      secondiTotal += 2419200;
+      if(mese > 3){
+        secondiTotal += 2678400;
+        if(mese > 4){
+          secondiTotal += 2592000;
+          if(mese > 5){
+            secondiTotal += 2678400;
+            if(mese > 6){
+              secondiTotal += 2592000;
+              if(mese > 7){
+                secondiTotal += 2678400;
+                if(mese > 8){
+                  secondiTotal += 2678400;
+                  if(mese > 9){
+                    secondiTotal += 2592000;
+                    if(mese > 10){
+                      secondiTotal += 2678400;
+                      if(mese > 11){
+                        secondiTotal += 2592000;
+                        if(mese > 12){
+                          secondiTotal += 2678400;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
   }
+  
+  secondiTotal += (day() - 1) * 86400;
+  secondiTotal += hour() * 3600;
+  secondiTotal += minute() * 60;
+  secondiTotal += second();
+  
+  let secondiRestanti = secondiTarget - secondiTotal;
+  
+  let secondi = secondiRestanti % 60;
+  secondiRestanti = (secondiRestanti - secondi) / 60;
+  let minuti = secondiRestanti % 60;
+  secondiRestanti = (secondiRestanti - minuti) / 60;
+  let ore = secondiRestanti % 24;
+  secondiRestanti = (secondiRestanti - ore) / 24;
+  let giorni = secondiRestanti;
   
   push();
   textFont(myFontCoiny);
